@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0f0f11;
+  --surface: #1a1a1f;
+  --surface2: #222228;
+  --border: #2e2e38;
+  --accent: #7c6af7;
+  --accent2: #f76ac1;
+  --text: #e8e8f0;
+  --text-muted: #888898;
+  --canvas-bg: #16161b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+}
+
+#root { height: 100vh; }
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+.font-display { font-family: 'Syne', sans-serif; }
+
+.btn {
+  @apply flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer select-none;
+}
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+.btn-primary:hover { filter: brightness(1.15); }
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+}
+.btn-ghost:hover { background: var(--surface2); color: var(--text); }
+
+.panel {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+}
+
+input[type="range"] {
+  @apply w-full accent-violet-500 cursor-pointer;
+}
+
+input[type="number"], input[type="text"], select {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  @apply rounded-md px-2 py-1 text-sm outline-none;
+}
+
+input[type="number"]:focus, input[type="text"]:focus, select:focus {
+  border-color: var(--accent);
+}
+
+.layer-item {
+  @apply flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer text-sm transition-all;
+  background: transparent;
+}
+.layer-item:hover { background: var(--surface2); }
+.layer-item.selected { background: rgba(124, 106, 247, 0.15); border: 1px solid rgba(124, 106, 247, 0.4); }
+
+.section-title {
+  @apply text-xs font-semibold uppercase tracking-widest mb-2;
+  color: var(--text-muted);
+}
